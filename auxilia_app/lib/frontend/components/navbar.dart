@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../routes/app_routes.dart'; // Asegúrate de que la ruta sea correcta
+import '../../routes/app_routes.dart'; // Asegúrate de que la ruta sea correcta
 
 class CustomNavBar extends StatelessWidget {
   const CustomNavBar({super.key});
@@ -39,31 +39,36 @@ class CustomNavBar extends StatelessWidget {
           ),
           // Ítems del menú
           _NavItem(
-            icon: Icons.search,
-            title: 'Search',
-            onTap: () => Navigator.pushNamed(context, AppRoutes.prueba), // Ajusta la ruta
+            icon: Icons.login,
+            title: 'Iniciar sesión',
+            onTap: () => Navigator.pushNamed(context, AppRoutes.login), // Ajusta la ruta
           ),
           _NavItem(
-            icon: Icons.dashboard,
-            title: 'Dashboard',
+            icon: Icons.book,
+            title: 'Historial',
+            onTap: () => Navigator.pushNamed(context, AppRoutes.historial),
+          ),
+          _NavItem(
+            icon: Icons.home,
+            title: 'Cerca de mí',
+            onTap: () => Navigator.pushNamed(context, AppRoutes.cercademi),
+          ),
+          _NavItem(
+            icon: Icons.close,
+            title: 'Cerrar sesión',
             onTap: () => Navigator.pushNamed(context, AppRoutes.prueba),
           ),
           _NavItem(
-            icon: Icons.assignment,
-            title: 'Projects',
-            onTap: () => Navigator.pushNamed(context, AppRoutes.prueba),
-          ),
-          _NavItem(
-            icon: Icons.analytics,
-            title: 'Reports',
-            onTap: () => Navigator.pushNamed(context, AppRoutes.prueba),
+            icon: Icons.emergency,
+            title: 'Primeros auxilios',
+            onTap: () => Navigator.pushNamed(context, AppRoutes.first),
           ),
           // Agrega más ítems según necesites
           const Divider(),
           _NavItem(
-            icon: Icons.settings,
-            title: 'Configuración',
-            onTap: () => Navigator.pushNamed(context, AppRoutes.prueba),
+            icon: Icons.analytics,
+            title: 'Análisis',
+            onTap: () => Navigator.pushNamed(context, AppRoutes.seguimiento),
           ),
         ],
       ),

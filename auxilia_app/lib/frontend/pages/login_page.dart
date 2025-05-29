@@ -1,3 +1,4 @@
+import 'package:auxilia_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import '../components/navbar.dart';
 
@@ -11,27 +12,24 @@ class LoginPage extends StatelessWidget {
       drawer: const CustomNavBar(),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 102, 146, 111),
-        centerTitle: true,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset(
-              'lib/assets/logo.png', // Ajusta la ruta exacta
-              height: 40, // Altura deseada
-              fit: BoxFit.contain,
-            ),
-            const SizedBox(width: 10), // Espacio entre imagen y texto
-            const Text(
-              'INICIAR SESIÓN',
-              style: TextStyle(
-                fontFamily: 'CarterOne', // Usa la fuente CarterOne
-                fontSize: 20, // Tamaño ajustable
-                color: Colors.white,
-                letterSpacing: 1.2,
+        automaticallyImplyLeading:
+            false, // Oculta el botón de retroceso (si no es necesario)
+        title: Container(
+          width: double.infinity, // Ocupa todo el ancho disponible
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end, // Alinea a la derecha
+            crossAxisAlignment:
+                CrossAxisAlignment.center, // Centra verticalmente
+            children: [
+              Image.asset(
+                'assets/imagenes/logohorizontal.png',
+                height:
+                    50, // Reduje la altura para que quepa mejor en el AppBar
+                fit: BoxFit.contain,
               ),
-            ),
-          ],
+              const SizedBox(width: 10),
+            ],
+          ),
         ),
       ),
       body: Center(
@@ -76,8 +74,12 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: 30),
                 _buildLoginButton(context),
                 const SizedBox(height: 16),
-                _buildTextButton('Recuperar contraseña', onPressed: () {}),
-                _buildTextButton('Crear cuenta', onPressed: () {}),
+                _buildTextButton('Recuperar contraseña', onPressed: () {
+                  Navigator.pushReplacementNamed(context, AppRoutes.recuperaPass);
+                }),
+                _buildTextButton('Crear cuenta', onPressed: () {
+                  Navigator.pushReplacementNamed(context, AppRoutes.register);
+                }),
               ],
             ),
           ),
@@ -122,7 +124,7 @@ class LoginPage extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {
           // Navegar al home después del login
-          Navigator.pushReplacementNamed(context, '/home');
+          Navigator.pushReplacementNamed(context, AppRoutes.register);
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFF72C7D3),

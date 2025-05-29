@@ -12,26 +12,29 @@ dependencies:
   cupertino_icons: ^1.0.6
   http: ^1.4.0
   flutter_dotenv: ^5.2.1
-  file_picker: ^8.0.0+1
-  audioplayers: ^5.2.1
-  speech_to_text: ^6.6.0
-  geolocator: ^10.1.0
+  file_picker: ^10.1.9  # Versión más estable para web
+  audioplayers: ^6.4.0
+  speech_to_text: ^7.0.0
+  geolocator: ^14.0.1
   url_launcher: ^6.2.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
+  flutter_lints: ^5.0.0
 
 flutter:
   uses-material-design: true
   
   # ✅ Configuración de assets (imágenes y fuentes)
   assets:
-    - lib/assets/AuxilIA.png  # Ajusta la ruta según donde esté tu imagen
-    # - assets/images/  # Opcional: si tienes más imágenes en esta carpeta
+    - assets/imagenes/Auxilia.png  # Ruta exacta y completa
+    - assets/imagenes/logo.png  
+    - assets/imagenes/logohorizontal.png   # Agrega todas las imágenes necesarias
+    # O si prefieres incluir toda la carpeta:
+    # - lib/assets/imagenes/  
 
   fonts:
     - family: CarterOne
       fonts:
-        - asset: assets/fonts/CarterOne-Regular.ttf  # Descarga la fuente y colócala aquí
+        - asset: assets\fonts\Carter_One\CarterOne-Regular.ttf  # Descarga la fuente y colócala aquí

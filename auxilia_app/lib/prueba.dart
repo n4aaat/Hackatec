@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'components/navbar.dart'; // Ajusta la ruta según tu proyecto
+import 'frontend/components/navbar.dart'; // Ajusta la ruta según tu proyecto
 
 class Prueba extends StatelessWidget {
   const Prueba({super.key});

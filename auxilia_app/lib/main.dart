@@ -18,7 +18,7 @@ class AuxiliaApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF72C7D3)),
         useMaterial3: true,
       ),
-      initialRoute: AppRoutes.login,
+      initialRoute: AppRoutes.first,
       routes: AppRoutes.routes,
     );
   }
