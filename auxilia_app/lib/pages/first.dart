@@ -31,34 +31,51 @@ class _FirstState extends State<First> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[200],  // Fondo gris claro para mejor contraste
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(24),  // Más espacio para el contenido
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,  // Alinear a la izquierda
             children: [
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Hello there!",
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              const Text(
+                "Hello there!",
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
                 ),
               ),
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "How can I help you today?",
-                  style: TextStyle(fontSize: 16, color: Colors.grey),
+              const SizedBox(height: 8),
+              const Text(
+                "How can I help you today?",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black54,
                 ),
               ),
-              const SizedBox(height: 20),
-              // Aquí no mostramos mensajes, solo un espacio vacío
-              Expanded(child: Container()),
-              const SizedBox(height: 12),
+              const SizedBox(height: 30),
+              Expanded(
+                child: Container(
+                  // Aquí puedes agregar mensajes o contenido futuro
+                  color: Colors.white,
+                  child: Center(
+                    child: Text(
+                      'No messages yet',
+                      style: TextStyle(color: Colors.grey[500], fontSize: 16),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
               Row(
                 children: [
                   IconButton(
-                    icon: Icon(_listening ? Icons.mic : Icons.mic_none),
+                    iconSize: 30,
+                    icon: Icon(
+                      _listening ? Icons.mic : Icons.mic_none,
+                      color: _listening ? Colors.red : Colors.black54,
+                    ),
                     onPressed: _toggleListening,
                   ),
                   Expanded(
@@ -66,15 +83,20 @@ class _FirstState extends State<First> {
                       controller: _controller,
                       decoration: const InputDecoration(
                         hintText: 'Send a message...',
+                        border: OutlineInputBorder(),
+                        contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                       ),
                       onSubmitted: _handleSubmitted,
                     ),
                   ),
+                  const SizedBox(width: 8),
                   IconButton(
-                    icon: const Icon(Icons.send),
+                    iconSize: 28,
+                    icon: const Icon(Icons.send, color: Colors.blue),
                     onPressed: () => _handleSubmitted(_controller.text),
                   ),
                   IconButton(
+                    iconSize: 28,
                     icon: const Icon(Icons.warning, color: Colors.red),
                     onPressed: _sendSOS,
                   ),

@@ -9,13 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   cupertino_icons: ^1.0.6
   http: ^1.4.0
   flutter_dotenv: ^5.2.1
   file_picker: ^8.0.0+1
-
-  # ✅ Requeridas por `first.dart`
   audioplayers: ^5.2.1
   speech_to_text: ^6.6.0
   geolocator: ^10.1.0
@@ -28,3 +25,13 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  
+  # ✅ Configuración de assets (imágenes y fuentes)
+  assets:
+    - lib/assets/AuxilIA.png  # Ajusta la ruta según donde esté tu imagen
+    # - assets/images/  # Opcional: si tienes más imágenes en esta carpeta
+
+  fonts:
+    - family: CarterOne
+      fonts:
+        - asset: assets/fonts/CarterOne-Regular.ttf  # Descarga la fuente y colócala aquí
